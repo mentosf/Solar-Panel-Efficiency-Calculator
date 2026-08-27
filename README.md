@@ -46,16 +46,101 @@ An interactive web application built with Streamlit for estimating solar radiati
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Installation & Setup Guide
+
+Follow these step-by-step instructions to get the project up and running on your local machine.
 
 ### Prerequisites
 
-- Python 3.9+ 
-- `pip` (Python package installer)
+Ensure you have **Python 3.9** or higher installed on your system. You can verify your Python version by running:
 
-### Installation
+```bash
+python --version
+```
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/your-username/solar-energy-ukraine.git](https://github.com/your-username/solar-energy-ukraine.git)
-   cd solar-energy-ukraine
+---
+
+### Step 1: Clone the Repository
+
+Clone the project repository from GitHub to your local system and navigate to the project directory:
+
+```bash
+git clone [https://github.com/mentosf/project-name.git](https://github.com/mentosf/project-name.git)
+cd solar-energy-ukraine
+```
+
+---
+
+### Step 2: Create a Virtual Environment
+
+It is strongly recommended to set up an isolated virtual environment to manage dependencies properly:
+
+- **On macOS / Linux:**
+  ```bash
+  python3 -m venv venv
+  source venv/bin/activate
+  ```
+
+- **On Windows (Command Prompt):**
+  ```cmd
+  python -m venv venv
+  venv\Scripts\activate
+  ```
+
+- **On Windows (PowerShell):**
+  ```powershell
+  python -m venv venv
+  .\venv\Scripts\Activate.ps1
+  ```
+
+*Note: You will know your environment is active when `(venv)` appears at the beginning of your terminal prompt.*
+
+---
+
+### Step 3: Install Required Dependencies
+
+Ensure `pip` is updated to the latest version and install all required modules using `requirements.txt`:
+
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+---
+
+### Step 4: Run the Application
+
+Once all packages are successfully installed, launch the Streamlit application by running:
+
+```bash
+streamlit run app.py
+```
+
+The application will automatically start and open in your default web browser at:
+`http://localhost:8501`
+
+---
+
+### 🗄️ Database Initialization Note
+
+The local database (`solar_cache.db`) is automatically initialized upon application startup. You do not need to run any manual database migrations or schema creation scripts.
+
+---
+
+## 📊 How to Use the Application
+
+1. **Select Location:** Click on any point on the map of Ukraine to automatically set the latitude and longitude.
+2. **Adjust Parameters (Sidebar):**
+   - Choose tilt angle and panel orientation (azimuth).
+   - Enter your panel's surface area and nominal efficiency rating.
+   - Select the historical year range (e.g., last 5 years).
+3. **Run Simulation:** Click the **"Розрахувати"** (Calculate) button.
+   - The app will retrieve weather data from the local SQLite cache or request it from the Open-Meteo API.
+   - The model will convert raw solar radiation into total generated kilowatt-hours ($\text{kWh}$).
+4. **Analyze Results:** Explore overall metrics, monthly energy production bar charts, and detailed hourly data tables.
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
